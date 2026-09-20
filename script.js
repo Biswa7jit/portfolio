@@ -2,7 +2,31 @@
    PORTFOLIO JAVASCRIPT
 ========================================= */
 
+// Experience accordion behavior
+document.querySelectorAll('.experience-toggle').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.stopPropagation();
 
+        const accordion = button.closest('.experience-accordion');
+        const isActive = accordion.classList.contains('active');
+
+        // Close all accordions first (optional – so only one is open at a time)
+        document.querySelectorAll('.experience-accordion').forEach(acc => {
+            acc.classList.remove('active');
+            const btn = acc.querySelector('.experience-toggle');
+            if (btn) {
+                btn.textContent = 'See details';
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        if (!isActive) {
+            accordion.classList.add('active');
+            button.textContent = 'Hide details';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
 /* =========================================
    1. MOBILE MENU
 ========================================= */
@@ -63,6 +87,29 @@ skillCategories.forEach(function (category) {
 
 });
 
+// Skills accordion behavior
+document.querySelectorAll('.skill-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+        const card = button.closest('.skill-category');
+        const isActive = card.classList.contains('active');
+
+        // Optional: close all skill cards first (so only one is open at a time)
+        document.querySelectorAll('.skill-category').forEach(c => {
+            c.classList.remove('active');
+            const btn = c.querySelector('.skill-toggle');
+            if (btn) {
+                btn.textContent = 'See details';
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        if (!isActive) {
+            card.classList.add('active');
+            button.textContent = 'Hide details';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
 
 /* =========================================
    4. PROJECT CARD INTERACTION
