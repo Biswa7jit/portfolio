@@ -708,24 +708,39 @@ section > p {
 .certification-description {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease;
-    padding: 0 24px;
-    background: var(--paper);
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 25px;
+    background: #f8fafc;
 }
 
-.certification-description p {
-    margin: 8px 0 0 0; 
-    padding: 0;
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.6;
-}
-
+/* Inside the description: paragraphs and lists */
+.certification-description p,
 .certification-description ul {
-    margin: 6px 0 10px 0;   /* top, right, bottom, left */
-    padding-left: 20px;     /* adjust if you want bullets more/less indented */
+    padding: 10px 0 14px 0;
+    margin: 0;
+    color: #475569;
     font-size: 15px;
     line-height: 1.6;
+}
+
+/* Bullet list styling */
+.certification-description ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.certification-description li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.certification-description li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: bold;
 }
 
 .certification-description p + ul {
@@ -733,7 +748,8 @@ section > p {
 }
 
 .certification-item.active .certification-description {
-    max-height: 300px;
+    max-height: 1200px;
+    padding: 0 20px 20px 20px;
 }
 
 .certification-item.active .arrow {
@@ -943,4 +959,24 @@ section.visible {
     .project-card {
         padding: 22px 20px;
     }
+
+    .certification-description {
+        padding: 0 18px;
+    }
+
+    .certification-item.active .certification-description {
+        max-height: 1500px; /* larger on mobile to be safe */
+        padding: 0 15px 20px 15px;
+    }
+
+    .certification-description p,
+    .certification-description ul {
+        font-size: 14px;
+        padding: 8px 0 12px 0;
+    }
+
+    .certification-description li {
+        margin-bottom: 6px;
+    }
+
 }
