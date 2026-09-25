@@ -382,7 +382,7 @@ section > p {
     text-align: center;
     animation:
         fadeIn 1s ease both,
-        floatImage 5s ease-in-out 1s infinite;
+        floatImage 17s ease-in-out 1s infinite;
 }
 
 .hero-image img {
