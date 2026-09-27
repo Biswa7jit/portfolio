@@ -111,6 +111,28 @@ document.querySelectorAll('.skill-toggle').forEach(button => {
     });
 });
 
+// Topic accordion behavior
+document.querySelectorAll('.cert-topic-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const topic = button.closest('.cert-topic');
+        const isActive = topic.classList.contains('active');
+
+        // Optional: close all topics first
+        document.querySelectorAll('.cert-topic').forEach(t => {
+            t.classList.remove('active');
+            const btn = t.querySelector('.cert-topic-button');
+            if (btn) {
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        if (!isActive) {
+            topic.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
+
 /* =========================================
    4. PROJECT CARD INTERACTION
 ========================================= */

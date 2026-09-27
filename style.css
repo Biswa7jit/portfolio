@@ -847,7 +847,7 @@ section > p {
 }
 
 .issuer-logo {
-    width: 82px;
+    width: 120px;
     height: 50px;
     object-fit: contain;
     border-radius: var(--radius-sm);
@@ -889,6 +889,89 @@ section > p {
     background: linear-gradient(135deg, var(--primary), var(--violet));
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
     transform: translateY(-3px);
+}
+
+/* Topic accordion wrapper */
+.cert-topic {
+    max-width: 920px;
+    margin: 22px auto 10px;
+}
+
+/* Topic button */
+.cert-topic-button {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a); /* navy theme */
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.25);
+}
+
+/* Center the text span specifically */
+.cert-topic-button > span:first-child {
+    flex: 1;
+    text-align: center;
+}
+
+.cert-topic-button:hover {
+    background: linear-gradient(135deg, #112240, #254a9e);
+    transform: translateY(-2px);
+    border-color: rgba(37, 99, 235, 0.5);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.35);
+}
+
+.topic-arrow {
+    color: #93c5fd;
+    font-size: 18px;
+    transition: transform 0.4s ease;
+}
+
+/* Topic content (hidden by default) */
+.cert-topic-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+        max-height 0.5s ease,
+        opacity 0.4s ease,
+        padding 0.4s ease;
+    padding: 0 10px;
+     background: #f8fbff; /* same background for all subtopics */
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* Expanded topic */
+.cert-topic.active .cert-topic-content {
+    max-height: 2000px; /* large enough for many certs */
+    padding: 12px 10px 20px;
+    opacity: 1;
+}
+
+.cert-topic.active .topic-arrow {
+    transform: rotate(180deg);
+}
+
+/* Ensure inner certification items keep their styles */
+.cert-topic-content .certification-item {
+    margin-top: 14px;
+    margin-bottom: 14px;
+    border-left: 4px solid #2563eb; /* same color for all subtopics */
 }
 
 /* =========================================
