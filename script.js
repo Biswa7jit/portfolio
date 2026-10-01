@@ -137,16 +137,26 @@ document.querySelectorAll('.cert-topic-button').forEach(button => {
    4. PROJECT CARD INTERACTION
 ========================================= */
 
-const projectCards = document.querySelectorAll(".project-card");
+// Projects topic accordion behavior
+document.querySelectorAll('.proj-topic-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const topic = button.closest('.proj-topic');
+        const isActive = topic.classList.contains('active');
 
-projectCards.forEach(function (card) {
+        // Optional: close all project topics first
+        document.querySelectorAll('.proj-topic').forEach(t => {
+            t.classList.remove('active');
+            const btn = t.querySelector('.proj-topic-button');
+            if (btn) {
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
 
-    card.addEventListener("click", function () {
-
-        this.classList.toggle("selected");
-
+        if (!isActive) {
+            topic.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
+        }
     });
-
 });
 
 
