@@ -940,6 +940,11 @@ section > p {
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-bottom: 10px; 
+}
+
+.certification-pdf-link {
+    margin: 8px 0 12px;  
 }
 
 .issuer-logo {
@@ -1243,3 +1248,5 @@ section.visible {
         text-align: center;
     }
 }
+
+/*  */
